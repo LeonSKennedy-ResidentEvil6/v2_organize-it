@@ -1,4 +1,4 @@
 class ParticipantSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :full_name, :email, :phone_number, :event
 end
