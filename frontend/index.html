@@ -6,78 +6,80 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
        
-        <title>Bootcamp Registration</title>
-       
+        <title>Organize It!</title>
+        <!-- Why put scripts in the head tag using ? -->
+        <!-- https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup -->
         <link rel="stylesheet" href="style/style.css">
-       <!-- Matters where the javaScript is placed . add defer keyword-->
-        <script type="text/javascript" src="src/course.js"></script>
-        <script type="text/javascript" src="src/student.js"></script>
-        <script type="text/javascript" src="src/index.js"></script>
+        <script type="text/javascript" src="src/course.js" defer></script>
+        <script type="text/javascript" src="src/student.js" defer></script>
+        <script type="text/javascript" src="src/index.js" defer></script>
     </head>
 
     <body>
+        <nav>
+            <div class="nav-bar">
+              <h1 class="logo"><strong>Organize It!</strong></h1>
+            </div>
+        </nav>
+
+        <div id='nav-image'>
+            <img src="https://manula.r.sizr.io/large/user/1134/img/new-user-dashboard_v1.png" alt="nav-image">
+        </div>
 
         <div id="container">
 
-            <h1>Technology Bootcamp Registration Portal</h1>
-            <p><em>Admin View : Permission to Register Students</em></p>
+            <h1>Organize Contacts!</h1>
             
             <form id="course-form">
-                <h3>Add New Bootcamp</h3>
-                <input id="input-name-course" type="text" placeholder="Name"></input>
+                <h3>Add a New Contact</h3>
+                <input id="input-name-category" name="name" type="text" placeholder="Contact Category Name"></input>
                 <br>
-                <input id="input-description-course" type="text" placeholder="Description"></input>
+                <input id="input-description-category" name="description" type="text" placeholder="Contact Category Description"></input>
                 <br>
                 <br>
-                <input id="create-button" type="submit" name="submit" value="Add New Course" class="submit"></input>
+                <input id="create-button" type="submit" name="submit" value="Add Category" class="submit"></input>
             </form>
 
             <br>
             <br>
 
-            <h3>Add Student Information for Course Registration</h3>
+            <h3>Add a Contact To a Category</h3>
 
-            <form id="card-form" class="card-registration-form">
+            <form id="contact-form" class="contact-form">
                 
-                <label>Full Name: </label>
+                <label>Name: </label>
                 <input id='full-name' type="text" name="fullname" value="" placeholder="Full Name" class="input-text">
                 <br>
-                
                 <label>E-mail: </label>
                 <input id='email' type="text" name="email" value="" placeholder="Email" class="input-text">
                 <br>
-                
                 <label>Time Preference: </label>
                 <input id='time-preference' type="text" name="timepreference" value="" placeholder="Time Preference" class="input-text">
                 <br>
-
-                <label>Bootcamp Selection</label>
-
+                <label>Select a Category</label>
                 <select id="course-list" name="bootcamps">
  
                 </select>
-                
                 <br>
                 <br>
 
-                <input id="create-button" type="submit" name="submit" value="Register A New Student" class="submit">
+                <input id="create-button" type="submit" name="submit" value="Add Contact" class="submit">
             </form>
-    
-            <i><p>Note: Courses may be deleted once all students have been removed from the course</p></i>
+
         </div>
             
             <br>
 
         <div id="containers">
-            <div id="course-selector" style="text-align: center;">
-                <h3 style="text-align: center;">Select a course to see it's students</h3>
+            <div id="course-selector" class="course-selector">
+                <h3 style="text-align: left;">All Contacts</h3>
                 
             </div>
 
             <br>
             <br>
 
-            <div id="card-container" class="single-card" style="text-align: center;">
+            <div id="card-container" class="single-card" style="text-align: left;">
 
             </div>
         </div>

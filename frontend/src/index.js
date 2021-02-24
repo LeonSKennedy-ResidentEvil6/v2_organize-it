@@ -5,7 +5,7 @@ const coursesEndPoint = "http://localhost:3000/courses"
 // the event listener saves from putting js on bottom
 document.addEventListener('DOMContentLoaded', () => {
 
-    const createStudentCardForm = document.querySelector("#card-form");
+    const createStudentCardForm = document.querySelector("#contact-form");
     createStudentCardForm.addEventListener("submit", (e) => createStudentFormHandler(e));
 
     const createCourseForm = document.querySelector("#course-form");
@@ -130,7 +130,9 @@ function postCourse(name){
     .then(resp => resp.json())
     .then(course => {
         const newCourse = new Course(course.data)
-        newCourse.renderCourse();
+        newCourse.renderCourse()
+        location.reload()
+        // createStudentCardForm.reset()
     })
     .catch(error => {alert(error.message)})
 }
@@ -170,8 +172,8 @@ function createStudentFormHandler(e){
 
 function createCourseFormHandler(e){
     e.preventDefault()
-    const nameInput = document.querySelector('#input-name-course').value
-    const descriptionInput = document.querySelector('#input-description-course').value
+    const nameInput = document.querySelector('#input-name-category').value
+    const descriptionInput = document.querySelector('#input-description-category').value
    
     postCourse(nameInput, descriptionInput)
 }
