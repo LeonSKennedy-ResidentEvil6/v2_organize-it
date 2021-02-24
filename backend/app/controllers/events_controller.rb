@@ -10,8 +10,8 @@ class EventsController < ApplicationController
       if event.save
         render json: EventSerializer.new(event), status: :accepted
       else
-        render json: { error: event.errors.full_message }, status: :unprocessible_entity
-      end
+        render json: {errors: course.errors.full_message}, status: :unprocessible_entity
+      end 
     end
 
     def show
@@ -26,11 +26,7 @@ class EventsController < ApplicationController
 
     private
 
-    # def get_event
-    #    event = Event.find_by(id: params[:id])
-    # end 
-
     def event_params
-        params.requrie(:event).permit(:name, :description)
+      params.require(:event).permit(:name, :description)
     end 
 end
