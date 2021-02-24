@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style/event.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+  </head>
+  <body>
+
+    <nav>
+      <div class="nav-bar">
+        <h1 class="logo"><strong>Book Lover Dashboard</strong></h1>
+      </div>
+    </nav>
+
+    <div id='dashboard-header'>
+      <img src="https://manula.r.sizr.io/large/user/1134/img/new-user-dashboard_v1.png" alt="dashboard-header">
+    </div>
+
+    <div class="container" id="container">
+      <form id="add-book-form" class="add-book-form" style="text-align: center;">
+        <h3>Add a book</h3>
+        <input id="input-title" type="text" name="title" placeholder="Enter a book's title" class="input-text" required>
+        <input id="input-author" type="text" name="author" placeholder="Enter a book's author" class="input-text"required>
+        <input id="input-category" type="text" name="category" placeholder="Enter a book's category" class="input-text"required>
+        <input id="input-description" type="text" name="description" placeholder="Enter a book's description" class="input-text"required>
+        <input id="input-image" type="text" name="image" placeholder="Enter a book's image url" class="input-text">
+        <input id="input-rating" type="integer" name="rating" placeholder="Rate this book (1-5)" class="input-text">
+        <input id="input-likes" type="integer" name="likes" placeholder="Like this book" class="input-text">
+        <br>
+        <input id="create-button" type="submit" name="submit" value="Create a new book" class="submit">
+        <br>
+        <input type="reset" value="Reset input">
+      </form>
+
+      <br>
+      <br>
+
+      <h2>Write a review </h2>
+
+      <form id="review-form" class="card-review-form">
+
+        <textarea id="comment" type="text" name="comment" placeholder="Review comment" class="input-text"></textarea>
+
+        <label>Book Selection</label>
+        <select id="book-list" name="books"></select>
+  
+        <br>
+        <br>
+  
+        <input id="create-button" type="submit" name="submit" value="Post review" class="submit">
+      </form>
+  
+    </div>
+
+    <div id="book-collection">
+
+      <div id="book-selector" style="text-align: center;">
+        <h2 style="text-align: left;">Select a book to see reviews</h2>
+      </div>
+
+      <br>
+      <br>
+        
+      <div id="review-container" class="review-card" style="text-align: left;">
+
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./src/index.js"></script>
+    <script type="text/javascript" src="./src/book.js"></script>
+    <script type="text/javascript" src="./src/review.js"></script>
+  </body>
+
+  
+</html>
