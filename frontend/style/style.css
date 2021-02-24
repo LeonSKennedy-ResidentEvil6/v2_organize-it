@@ -1,0 +1,16 @@
+body {
+    background-color: bisque;
+}
+/* 
+#card-form {
+    text-align: center;
+    border: 4px
+}
+
+.card-registration-form {
+    box-shadow: 0 8px 18px 0 rgba(0,0,8,2);
+} */
+
+#containers {
+    border: 4px dotted blue; 
+}
