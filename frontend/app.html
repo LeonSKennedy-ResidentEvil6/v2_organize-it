@@ -1,77 +1,77 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style/event.css">
+    <title>Organize It!</title>
+
+    <link rel="stylesheet" href="style/style.css">
+    <!-- Why put scripts in the head tag using ? -->
+    <!-- https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup -->
+    <script type="text/javascript" src="src/event.js" async></script>
+    <script type="text/javascript" src="src/participant.js" async></script>
+    <script type="text/javascript" src="src/app.js" async></script>
   </head>
+
   <body>
 
     <nav>
-      <div class="nav-bar">
-        <h1 class="logo"><strong>Book Lover Dashboard</strong></h1>
-      </div>
+        <div class="nav-bar">
+          <h1 class="logo"><strong>Organize It!</strong></h1>
+        </div>
     </nav>
 
-    <div id='dashboard-header'>
-      <img src="https://manula.r.sizr.io/large/user/1134/img/new-user-dashboard_v1.png" alt="dashboard-header">
+    <div id='nav-image'>
+        <img src="https://manula.r.sizr.io/large/user/1134/img/new-user-dashboard_v1.png" alt="nav-image">
+    </div>
+   
+    <div id="container">
+        <form id="event-form">
+            <h2>Add a New Event</h2>
+            <input id="input-event-name" type="text" placeholder="Event Name"></input>
+            <br>
+            <input id="input-event-description" type="text" placeholder="Event Description"></input>
+            <br>
+            <input id="create-button" type="submit" name="submit" value="Add this Event" class="submit"></form></input>
+        </form>
+
+        <br>
+        <br>
+
+        <form id="participant-form" class="participant-form">
+            <h2>Add Participants</h2>
+            <label>Full Name:</label>
+            <input id="full-name" type="text" name="fullname" placeholder="Full Name"></input>
+            <br>
+            <label>Email:</label>
+            <input id="email" type="text" name="email" placeholder="Email"></input>
+            <br>
+            <label>Phone Number:</label>
+            <input id="phone-number" type="text" name="phonenumber" placeholder="Phone Number"></input>
+            <br>
+
+            <select id="event-list" name="event-list">
+
+            </select>
+
+            <br>
+            <input id="create-button" type="submit" name="submit" value="Add Participant" class="submit">
+        </form>
+
     </div>
 
-    <div class="container" id="container">
-      <form id="add-book-form" class="add-book-form" style="text-align: center;">
-        <h3>Add a book</h3>
-        <input id="input-title" type="text" name="title" placeholder="Enter a book's title" class="input-text" required>
-        <input id="input-author" type="text" name="author" placeholder="Enter a book's author" class="input-text"required>
-        <input id="input-category" type="text" name="category" placeholder="Enter a book's category" class="input-text"required>
-        <input id="input-description" type="text" name="description" placeholder="Enter a book's description" class="input-text"required>
-        <input id="input-image" type="text" name="image" placeholder="Enter a book's image url" class="input-text">
-        <input id="input-rating" type="integer" name="rating" placeholder="Rate this book (1-5)" class="input-text">
-        <input id="input-likes" type="integer" name="likes" placeholder="Like this book" class="input-text">
+    <div id="containers">
+        <div id="event-selector" style="text-align: center;">
+            <p style="text-align: center;">Current event and participants</p>
+        </div>
+
         <br>
-        <input id="create-button" type="submit" name="submit" value="Create a new book" class="submit">
-        <br>
-        <input type="reset" value="Reset input">
-      </form>
 
-      <br>
-      <br>
-
-      <h2>Write a review </h2>
-
-      <form id="review-form" class="card-review-form">
-
-        <textarea id="comment" type="text" name="comment" placeholder="Review comment" class="input-text"></textarea>
-
-        <label>Book Selection</label>
-        <select id="book-list" name="books"></select>
-  
-        <br>
-        <br>
-  
-        <input id="create-button" type="submit" name="submit" value="Post review" class="submit">
-      </form>
-  
-    </div>
-
-    <div id="book-collection">
-
-      <div id="book-selector" style="text-align: center;">
-        <h2 style="text-align: left;">Select a book to see reviews</h2>
-      </div>
-
-      <br>
-      <br>
+        <div id="card-container" class="single-card" style="text-align: center;">
         
-      <div id="review-container" class="review-card" style="text-align: left;">
-
-      </div>
+        </div>
     </div>
 
-    <script type="text/javascript" src="./src/app.js"></script>
-    <script type="text/javascript" src="./src/event.js"></script>
-    <script type="text/javascript" src="./src/participant.js"></script>
-  </body>
 
-  
+  </body>
 </html>
