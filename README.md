@@ -17,7 +17,7 @@ This is an improved version of the organize-it application. Make sure <a href="h
 
 ## Project File Structure
 ```
-Organize-IT
+Organize-it
 ├── backend
 │   ├── app
 │   │   ├── controllers
