@@ -1,4 +1,4 @@
-const eventEndPoint = "http://127.0.0.1:3000/events"
+const eventsEndPoint = "http://127.0.0.1:3000/events"
 const participantEndPoint = "http://127.0.0.1:3000/participants"
 
 // Load forms and other content to app html page
@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     createEventForm.addEventListener("submit", e => createEventFormHandler(e));
 
     const createParticipantForm = document.querySelector('#participant-form')
-    createParticipantForm.addEventListener("submit", e => createParticipantFormHandler(e));
+    createParticipantForm.addEventListener("submit", (e) => createParticipantFormHandler(e));
 
     getEvents();
 })
 
 // get event
 async function getEvents() {
-    fetch(eventEndPoint)
+    fetch(eventsEndPoint)
     .then(response => response.json())
     .then(events => {
         events.data.forEach(event => {
@@ -28,16 +28,19 @@ async function getEvents() {
 function createEventFormHandler(e) {
     e.preventDefault()
     const eventNameInput = document.querySelector('#input-event-name').value
-    const eventDescriptionInput = document.querySelector('input-event-description').value
+    const eventDescriptionInput = document.querySelector('#input-event-description').value
     postEvent(eventNameInput, eventDescriptionInput)
 }
 
 // post event
-function postEvent(data){
-    fetch(eventEndPoint, {
+function postEvent(newEventData){
+    fetch(eventsEndPoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({data})
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+         },
+        body: JSON.stringify({newEventData})
     })
     .then(response => response.json())
     .then(event => {
@@ -49,7 +52,7 @@ function postEvent(data){
 
 // delete event
 function deleteEvent(e){
-    fetch(eventEndPoint + `/${e.target.id}`, {
+    fetch(evenstEndPoint + `/${e.target.id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
