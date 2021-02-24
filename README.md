@@ -2,43 +2,43 @@
 
 ## Starting the Application
 
-This application can be run locally. Make sure <a href="https://rubyonrails.org">Rails</a> is installed. Once Rails is installed, navigate to the Rails back end folder located at : `./student-course-backend` and run the following commands in your terminal:
+This is an improved version of the organize-it application. Make sure <a href="https://rubyonrails.org">Rails</a> is installed. Once Rails is installed, navigate to the Rails back end folder located at : `./backend` and run the following commands in your terminal:
 1. `bundle install`
 2. `rails db:migrate`
 3. `rails db:seed`
 4. `rails s` To get the rails server running
-5. change directory (cd) to `./student-course-frontend` and double-click `index.html` 
+5. change directory (cd) to `./frontend` and double-click `index.html` 
 
-## What The Application is Supposed to Accomplish for the User
+## What Does The Application do
 
-1. Allow the "Admin" (user) to view all of the students registered for a particular course
-2. Allow the "Admin" to register a student for a particular course 
-3. Allow the "Admin" to delete a particular student registered for a particular course
+1. Allow the user to view all of the events and add participants
+2. Allow the user to add a participant to a particular event
+3. Allow the user to delete a particular participant registered for a particular event
 
 ## Project File Structure
 ```
-student-course-rails-js
-├── student-course-backend
+Organize-IT
+├── backend
 │   ├── app
 │   │   ├── controllers
-│   │   │   ├── courses_controller.rb
-│   │   │   └── students_controller.rb
+│   │   │   ├── events_controller.rb
+│   │   │   └── participants_controller.rb
 │   │   ├── models
-│   │   │   ├── course.rb
-│   │   │   └── student.rb
+│   │   │   ├── event.rb
+│   │   │   └── participant.rb
 │   │   └── views
 │   └── db
 │       ├── migrate
-│       │   ├── 20200928184552_create_courses.rb
-│       │   └── 20200928184626_create_students.rb
+│       │   ├── create_events.rb
+│       │   └── create_participants.rb
 │       ├── schema.rb
 │       └── seeds.rb
 │
-├── student-course-frontend
+├── frontend
 │   ├── src
-│   │   ├── course.js
+│   │   ├── event.js
 │   │   ├── index.js
-│   │   └── student.js
+│   │   └── participant.js
 │   ├── style
 │   │   └── style.css
 │   └── index.html
