@@ -33,14 +33,19 @@ function createEventFormHandler(e) {
 }
 
 // post event
-function postEvent(eventNameInput) {
+function postEvent(eventNameInput, eventDescriptionInput) {
     fetch(eventsEndPoint, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
          },
-        body: JSON.stringify({eventNameInput})
+        body: JSON.stringify({
+            event: {
+                name: eventNameInput,
+                description: eventDescriptionInput
+            }
+        })
     })
     .then(response => response.json())
     .then(result => {
