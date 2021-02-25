@@ -1,5 +1,5 @@
 const eventsEndPoint = "http://127.0.0.1:3000/events"
-const participantEndPoint = "http://127.0.0.1:3000/participants"
+const participantsEndPoint = "http://127.0.0.1:3000/participants"
 
 // Load forms and other content to app html page
 document.addEventListener('DOMContentLoaded', () => {
@@ -58,7 +58,7 @@ function postEvent(eventNameInput, eventDescriptionInput) {
 
 // delete event
 function deleteEvent(e){
-    fetch(evenstEndPoint + `/${e.target.id}`, {
+    fetch(eventsEndPoint + `/${e.target.id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -89,7 +89,7 @@ function createParticipantFormHandler(e) {
 function postParticipant (full_name, email, phone_number, event_id){
     const participantObject = {full_name, email, phone_number, event_id}
 
-    fetch(participantEndPoint, {
+    fetch(participantsEndPoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(participantObject)
@@ -108,11 +108,11 @@ function renderParticipants(e) {
     const participantsCards = document.querySelector('#card-container')
     participantsCards.innerHTML = `Current Event: ${e.target.innerHTML}`
 
-    let removeCourse = document.createElement('button')
-    removeCourse.innerHTML = `Remove this event`
-    removeCourse.setAttribute("id", e.target.id)
-    removeCourse.addEventListener("click", (e) => deleteEvent(e))
-    participantsCards.appendChild(removeCourse)
+    let removeEvent = document.createElement('button')
+    removeEvent.innerHTML = `Remove this event`
+    removeEvent.setAttribute("id", e.target.id)
+    removeEvent.addEventListener("click", (e) => deleteEvent(e))
+    participantsCards.appendChild(removeEvent)
 
     fetch(eventsEndPoint + `/${e.target.id}`)
     .then(response => response.json())
@@ -121,13 +121,14 @@ function renderParticipants(e) {
             let newParticipant = new Participant(participant)
             newParticipant.renderParticipant()
         })
-        .catch(error => { alert(error.message)})
+        
     })
+    .catch(error => { alert(error.message)})
 }
 
 // delete participant
 function deleteParticipant(e){
-    fetch(participantEndPoint + `/${e.target.id}`, {
+    fetch(participantsEndPoint + `/${e.target.id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

@@ -55,8 +55,9 @@ function renderStudents(e){
         // }) // once all students are rendered the students are sorted
         // force the sort on an objects property - full_name
         
-        .catch(error => {alert(error.message)})
+        
     })
+    .catch(error => {alert(error.message)})
 }
 
 // create a sort method for the objects
