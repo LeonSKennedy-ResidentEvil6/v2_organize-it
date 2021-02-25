@@ -51,6 +51,7 @@ function postEvent(eventNameInput, eventDescriptionInput) {
     .then(result => {
         const newEvent = new Event(result.data)
         newEvent.renderEvent();
+        location.reload()
     })
     .catch(error => { alert(error.message) })
 }
@@ -88,7 +89,7 @@ function createParticipantFormHandler(e) {
 function postParticipant (full_name, email, phone_number, event_id){
     const participantObject = {full_name, email, phone_number, event_id}
 
-    fetch(studentsEndPoint, {
+    fetch(participantEndPoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(participantObject)
@@ -100,6 +101,28 @@ function postParticipant (full_name, email, phone_number, event_id){
         location.reload()
     })
     .catch(error => {alert(error.message)})
+}
+
+// display all participants
+function renderParticipants(e) {
+    const participantsCards = document.querySelector('#card-container')
+    participantsCards.innerHTML = `Current Event: ${e.target.innerHTML}`
+
+    let removeCourse = document.createElement('button')
+    removeCourse.innerHTML = `Remove this event`
+    removeCourse.setAttribute("id", e.target.id)
+    removeCourse.addEventListener("click", (e) => deleteEvent(e))
+    participantsCards.appendChild(removeCourse)
+
+    fetch(eventsEndPoint + `/${e.target.id}`)
+    .then(response => response.json())
+    .then(event => {
+        event.data.attributes.participants.forEach(participant => {
+            let newParticipant = new Participant(participant)
+            newParticipant.renderParticipant()
+        })
+        .catch(error => { alert(error.message)})
+    })
 }
 
 // delete participant
@@ -120,3 +143,4 @@ function deleteParticipant(e){
     })
     .catch(error => {alert(error.message)})
 }
+
