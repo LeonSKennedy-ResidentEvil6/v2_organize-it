@@ -109,9 +109,15 @@ function renderParticipants(e) {
     participantsCards.innerHTML = `Selected Event: ${e.target.innerHTML}`
 
     //display event description
-    let selectedEventDescription = document.createElement('h2')
-    selectedEventDescription.innerText = "Event description???"
-    participantsCards.appendChild(selectedEventDescription)
+    fetch(eventsEndPoint + `/${e.target.id}`)
+    .then(response => response.json())
+    .then(event => {
+        let newEvent = new Event(event.data)
+        let eventDescription = newEvent.description
+        let selectedEventDescription = document.createElement('h2')
+        selectedEventDescription.innerText = `About This Event: ${eventDescription}`
+        participantsCards.appendChild(selectedEventDescription)
+        })
 
     let removeEvent = document.createElement('button')
     removeEvent.innerHTML = `Remove this event`

@@ -17,11 +17,6 @@ class Event {
         eventListOption.setAttribute('value', this.id)
         eventList.appendChild(eventListOption)
 
-        // let eventListDescription = document.createElement('h2')
-        // eventListDescription = `Event Description: ${this.description}`
-        // eventListDescription.setAttribute('id', this.id)
-        // eventListDescription.setAttribute('value', this.description)
-
         let eventButton = document.createElement('button')
         eventButton.setAttribute('id', this.id)
         eventButton.innerHTML = `${this.name}`
