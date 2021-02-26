@@ -54,62 +54,43 @@ body {
     width: auto;
   }
   
-  #book-collection {
-    margin: 2rem;
-  }
-  
-  .card {
-    text-align: center;
-    border: grey solid 1px;
-    padding: 1rem;
-    width: 15rem;
-    height: 25rem;
-    display: inline-grid;
-    margin: 1rem 2rem;
-    box-shadow: 3px 4px #e04b52
-  }
-  
-  .book-avatar {
-    justify-self: center;
-    height: 12rem;
-    width: auto;
-  }
-  
   button {
     position: relative;
-    background-color: #5a4be0;
+    display: flex;
+    margin: 10px;
+    background-color: orchid;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     height: 3rem;
     width: max-content;
     color: whitesmoke;
-    font-size: 18px;
+    font-size: 30px;
     justify-self: center;
   }
   
   button:hover {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgb(218, 135, 41);
     border: #30c048 solid 1px;
     color: #e61425;
   }
 
   
-  .book-container {
-    padding: 1rem;
-    width: stretch;
-    height: auto;
-    display: none;
-    background: #515DA2;
-    opacity: .8;
-  }
-  
-  .add-book-form {
-    width: 100%
+  .event-form {
+    display: block;
+    text-align: center;
+    width: 100%;
+    background-color:wheat;
   }
 
-  .add-review-form {
+  .participant-form {
+    text-align: center;
+    width: 100%;
     background-color:wheat;
-    box-shadow: 0 20px 30px 0 rgb(236, 4, 4);
+  }
+
+  .containers {
+    border: 10px solid blue; 
   }
   
   .submit {
@@ -131,12 +112,3 @@ body {
     color: #7f4be0;
   }
   
-  
-  .input-text {
-    border-radius: 5px;
-    height: 2rem;
-    width: 60%;
-    font-size: 18px;
-    font-family: monospace;
-    margin: 3px;
-  }
