@@ -3,22 +3,53 @@ body {
     font-family: fantasy;
   }
 
+  nav {
+    padding: 2%;
+    background-color: darkturquoise;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  nav ul li {
+    width: 20%;
+    display: inline-block;
+    color: floralwhite;
+    border-right: 1px solid white;
+  }
+
+  @media screen and (max-width: 480px) {
+    body {
+      background-color: tomato;
+      font-size: 0.25em;
+    }
+  }
+
   .logo {
     display: flex;
     justify-content: left;
     background-color: #30c048;
   }
   
-  #dashboard-header {
+  #organize-it-header {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    flex: 100px;
+    justify-content: space-around;
     background: #515DA2;
     opacity: .8;
     height: 7rem;
     padding: 1rem;
   }
   
-  #dashboard-header img {
+  #organize-it-header img {
+    margin: 20px;
     height: 6rem;
     width: auto;
   }
