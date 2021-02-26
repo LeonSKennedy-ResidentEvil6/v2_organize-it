@@ -1,18 +1,18 @@
 const eventsEndPoint = "http://127.0.0.1:3000/events"
 const participantsEndPoint = "http://127.0.0.1:3000/participants"
 
-// Load forms and other content to app html page
+// Load forms and other core compenents to the user show page
 document.addEventListener('DOMContentLoaded', () => {
     const createEventForm = document.querySelector('#event-form');
     createEventForm.addEventListener("submit", (e) => createEventFormHandler(e));
 
     const createParticipantForm = document.querySelector('#participant-form')
     createParticipantForm.addEventListener("submit", (e) => createParticipantFormHandler(e));
-
+    // display current all events
     getEvents();
 })
 
-// get event
+// get event from backend
 async function getEvents() {
     fetch(eventsEndPoint)
     .then(response => response.json())
@@ -106,7 +106,12 @@ function postParticipant (full_name, email, phone_number, event_id){
 // display all participants
 function renderParticipants(e) {
     const participantsCards = document.querySelector('#card-container')
-    participantsCards.innerHTML = `Current Event: ${e.target.innerHTML}`
+    participantsCards.innerHTML = `Selected Event: ${e.target.innerHTML}`
+
+    //display event description
+    let selectedEventDescription = document.createElement('h2')
+    selectedEventDescription.innerText = "Event description???"
+    participantsCards.appendChild(selectedEventDescription)
 
     let removeEvent = document.createElement('button')
     removeEvent.innerHTML = `Remove this event`

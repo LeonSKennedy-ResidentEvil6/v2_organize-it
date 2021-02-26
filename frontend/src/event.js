@@ -12,10 +12,15 @@ class Event {
         const eventList = document.querySelector('#event-list')
         const eventListMarkup = `${this.name}`
         let eventListOption = document.createElement('option')
-        eventListOption.innerHTML = eventListMarkup
+        eventListOption.innerText = eventListMarkup
         eventListOption.setAttribute('id', this.id)
         eventListOption.setAttribute('value', this.id)
         eventList.appendChild(eventListOption)
+
+        // let eventListDescription = document.createElement('h2')
+        // eventListDescription = `Event Description: ${this.description}`
+        // eventListDescription.setAttribute('id', this.id)
+        // eventListDescription.setAttribute('value', this.description)
 
         let eventButton = document.createElement('button')
         eventButton.setAttribute('id', this.id)
