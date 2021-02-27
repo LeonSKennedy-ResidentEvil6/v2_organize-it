@@ -128,14 +128,25 @@ function renderParticipants(e) {
     fetch(eventsEndPoint + `/${e.target.id}`)
     .then(response => response.json())
     .then(event => {
-        event.data.attributes.participants.forEach(participant => {
+        event.data.attributes.participants.sort(sortParticipants).forEach(participant => {
             let newParticipant = new Participant(participant)
+            // newParticipant.sortParticipants()
             newParticipant.renderParticipant()
         })
         
     })
     .catch(error => { alert(error.message)})
 }
+
+// sort participants by their full name
+function sortParticipants(a, b) {
+    let nameA = a.full_name.toUpperCase();
+    let nameB = b.full_name.toUpperCase();
+    if (nameA < nameB) { return -1 };
+    if (nameB > nameA) { return 1 };
+    return 0
+}
+
 
 // delete participant
 function deleteParticipant(e){
