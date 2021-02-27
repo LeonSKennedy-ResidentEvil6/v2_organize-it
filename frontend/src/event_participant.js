@@ -126,8 +126,6 @@ function renderParticipants(e) {
         selectedEventDescription.innerText = `${eventDescription}`
         selectedEventDescription.setAttribute("id", "eventDespEditable")
         selectedEventDescription.contentEditable = 'true'
-       
-        let eventDesp = document.getElementById("eventDespEditable")
         
         participantsCards.append(aboutThisEventText, editableMsg, selectedEventDescription)
         })
