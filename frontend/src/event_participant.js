@@ -113,15 +113,19 @@ function renderParticipants(e) {
     .then(response => response.json())
     .then(event => {
         let newEvent = new Event(event.data)
+        let aboutThisEventText = document.createElement('h3')
+        aboutThisEventText.innerText = `About This Event:`
         let eventDescription = newEvent.description
         let selectedEventDescription = document.createElement('h2')
-        selectedEventDescription.innerText = `About This Event: ${eventDescription}`
+        selectedEventDescription.innerText = `${eventDescription}`
+        selectedEventDescription.setAttribute("id", "eventDespEditable")
         
         let editableMsg = document.createElement('p')
         editableMsg.style.color = "red"
         editableMsg.innerHTML = `Click on the event description to edit`
         selectedEventDescription.contentEditable = 'true'
         
+        participantsCards.appendChild(aboutThisEventText)
         participantsCards.appendChild(selectedEventDescription)
         participantsCards.appendChild(editableMsg)
         })
