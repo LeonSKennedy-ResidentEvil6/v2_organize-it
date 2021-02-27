@@ -116,7 +116,14 @@ function renderParticipants(e) {
         let eventDescription = newEvent.description
         let selectedEventDescription = document.createElement('h2')
         selectedEventDescription.innerText = `About This Event: ${eventDescription}`
+        
+        let editableMsg = document.createElement('p')
+        editableMsg.style.color = "red"
+        editableMsg.innerHTML = `Click on the event description to edit`
+        selectedEventDescription.contentEditable = 'true'
+        
         participantsCards.appendChild(selectedEventDescription)
+        participantsCards.appendChild(editableMsg)
         })
 
     let removeEvent = document.createElement('button')
@@ -130,7 +137,6 @@ function renderParticipants(e) {
     .then(event => {
         event.data.attributes.participants.sort(sortParticipants).forEach(participant => {
             let newParticipant = new Participant(participant)
-            // newParticipant.sortParticipants()
             newParticipant.renderParticipant()
         })
         
