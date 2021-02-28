@@ -8,7 +8,9 @@ class Notes {
 
     fetchAndLoadNotes() {
         this.adapter.getNotes().then(notes => {
-            notes.forEach(note => this.notes.push(note))
+            // notes.forEach(note => this.notes.push(note))
+            notes.forEach(note => this.notes.push(new Note(note)))
+            console.log('this is my notes array', this.notes)
         })
         .then(() => {
             this.render()
