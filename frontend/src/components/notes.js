@@ -8,7 +8,16 @@ class Notes {
 
     fetchAndLoadNotes() {
         this.adapter.getNotes().then(notes => {
-            console.log(notes)
+            notes.forEach(note => this.notes.push(note))
+        })
+        .then(() => {
+            this.render()
         })
     }
+
+    render() {
+        const notesContainer = document.querySelector("#notes-container")
+        notesContainer.innerHTML = "my notes go here"
+    }
+
 }
