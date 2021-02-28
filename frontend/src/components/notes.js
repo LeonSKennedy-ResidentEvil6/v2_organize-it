@@ -1,8 +1,8 @@
 class Notes {
     constructor() {
         this.notes = []
-        this.adapter = new NotesAdapter()
-        this.bindEventListensers()
+        this.adapter = new NotesService()
+        // this.bindEventListensers()
         this.fetchAndLoadNotes()
     }
 
