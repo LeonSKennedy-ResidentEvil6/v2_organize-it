@@ -36,3 +36,9 @@ frank_king = Participant.create(full_name: "Frank King", email: "frank_king@gmai
 
 leon_kennedy = Participant.create(full_name: "Leon Kennedy", email: "leon.kennedy@gmail.com", phone_number: "5146523123", event_id: dating_make_it_easy.id)
 ada_wong = Participant.create(full_name: "Ada Wong", email: "ada.wang@gmail.com", phone_number: "3152224222", event_id: dating_make_it_easy.id)
+
+Note.create([
+    { body: 'New York Times politics column'},
+    { body: 'Trade View Hot Stocks'},
+    { body: 'Personal diary'},
+])
