@@ -8,6 +8,8 @@ class Notes {
 
     bindingsAndEventListeners() {
         this.notesContainer = document.querySelector("#notes-container")
+        this.newNoteForm = document.querySelector("#new-note-from")
+        this.newNoteForm.addEventListener('submit', this.createNote)
     }
 
     fetchAndLoadNotes() {
@@ -24,6 +26,11 @@ class Notes {
     render() {
         let notesString = this.notes.map(note => note.renderNoteLi()).join('')
         this.notesContainer.innerHTML = notesString
+    }
+
+    createNote(e) {
+        e.preventDefault()
+        console.log("yoo")
     }
 
 }
