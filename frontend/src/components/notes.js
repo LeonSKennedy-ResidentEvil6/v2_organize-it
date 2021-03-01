@@ -10,7 +10,7 @@ class Notes {
         this.adapter.getNotes().then(notes => {
             // notes.forEach(note => this.notes.push(note))
             notes.forEach(note => this.notes.push(new Note(note)))
-            console.log('this is my notes array', this.notes)
+            // console.log('this is my notes array', this.notes)
         })
         .then(() => {
             this.render()
@@ -19,7 +19,8 @@ class Notes {
 
     render() {
         const notesContainer = document.querySelector("#notes-container")
-        notesContainer.innerHTML = "my notes go here"
+        let notesString = this.notes.map(note => `<li id="${note.id}">${note.body}</li>`).join('')
+        notesContainer.innerHTML = notesString
     }
 
 }
