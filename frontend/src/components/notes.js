@@ -30,10 +30,11 @@ class Notes {
     }
 
     createNote(e) {
-        // console.log(this)
         e.preventDefault()
         let noteInput = this.inputNoteBody.value
-        this.adapter.createNote(noteInput).then(note => {console.log(note)})
+        this.adapter.createNote(noteInput).then(note => {this.notes.push(new Note(note))})
+        this.render()
+        window.location.reload();
     }
 
 }
