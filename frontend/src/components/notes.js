@@ -58,6 +58,8 @@ class Notes {
         noteLi.contentEditable = false
         noteLi.classList.remove("contentEditable")
         let noteLiNewContent = noteLi.innerHTML
-        this.adapter.updateNote(noteLiNewContent, id)
+        let noteId = noteLi.dataset.id
+        console.log(noteId)
+        this.adapter.updateNote(noteLiNewContent, noteId)
     }
 }
