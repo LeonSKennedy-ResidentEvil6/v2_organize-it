@@ -8,8 +8,8 @@ class Notes {
 
     bindingsAndEventListeners() {
         this.notesContainer = document.querySelector("#notes-container")
+        this.inputNoteBody = document.querySelector("#input-note-body")
         this.newNoteForm = document.querySelector("#new-note-from")
-        this.inputNoteBody = document.getElementById("#input-note-body")
         this.newNoteForm.addEventListener('submit', this.createNote.bind(this))
     }
 
@@ -30,11 +30,10 @@ class Notes {
     }
 
     createNote(e) {
-        console.log(this)
+        // console.log(this)
         e.preventDefault()
         let noteInput = this.inputNoteBody.value
-
-        this.adapter.createNote(noteInput)
+        this.adapter.createNote(noteInput).then(note => {console.log(note)})
     }
 
 }

@@ -6,4 +6,19 @@ class NotesService {
     async getNotes() {
         return fetch(this.baseUrl).then(resp => resp.json())
     }
+
+    async createNote(noteInput) {
+        // let noteObj = { body: noteInput }
+        return fetch(this.baseUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                  note: {
+                    body: noteInput
+                  }
+            }),
+        })
+    }
 }
