@@ -11,9 +11,14 @@ class Notes {
         this.inputNoteBody = document.querySelector("#input-note-body")
         this.newNoteForm = document.querySelector("#new-note-from")
         this.newNoteForm.addEventListener('submit', this.createNote.bind(this))
-        this.notesContainer.addEventListener('dblclick', this.handleNoteClick.bind(this))
+        // this.notesContainer.addEventListener('dblclick', this.handleNoteClick.bind(this))
+        // take notes here: need to select parent to add event listener. why?
+        this.body = document.querySelector('body')
+        this.body.addEventListener('dblclick', this.handleNoteClick.bind(this))
+        this.body.addEventListener('focusout', this.updateNote.bind(this), true)
     }
 
+    // get notes from backend
     fetchAndLoadNotes() {
         this.adapter.getNotes().then(notes => {
             // notes.forEach(note => this.notes.push(note))
@@ -21,12 +26,12 @@ class Notes {
             // console.log('this is my notes array', this.notes)
         })
         .then(() => {
-            this.render()
+            this.renderNotes()
         })
     }
 
     // render and display notes
-    render() {
+    renderNotes() {
         let notesString = this.notes.map(note => note.renderNoteLi()).join('')
         this.notesContainer.innerHTML = notesString
     }
@@ -36,7 +41,7 @@ class Notes {
         e.preventDefault()
         let noteInput = this.inputNoteBody.value
         this.adapter.createNote(noteInput).then(note => {this.notes.push(new Note(note))})
-        this.render()
+        this.renderNotes()
         window.location.reload();
     }
 
@@ -45,5 +50,12 @@ class Notes {
         let noteLi = e.target
         noteLi.contentEditable = true
         noteLi.classList.add("contentEditable")
+        noteLi.focus({preventScroll:true})
+    }
+
+    updateNote(e) {
+        let noteLi = e.target
+        noteLi.contentEditable = false
+        noteLi.classList.remove("contentEditable")
     }
 }
