@@ -24,4 +24,22 @@ class NotesService {
         .then(response => response.json())
 
     }
+
+    async updateNote(noteLiNewContent, id) {
+        let newNoteList = { body: noteLiNewContent} 
+        return fetch(`${this.baseUrl}/${this.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+              }, 
+            //   body: JSON.stringify({
+            //       note: {
+            //         body: newNoteList
+            //       }
+            // }),
+            body: JSON.stringify({newNoteList}),
+        })
+        .then(response => response.json())
+
+    }
 }

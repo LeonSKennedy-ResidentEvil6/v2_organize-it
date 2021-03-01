@@ -57,5 +57,7 @@ class Notes {
         let noteLi = e.target
         noteLi.contentEditable = false
         noteLi.classList.remove("contentEditable")
+        let noteLiNewContent = noteLi.innerHTML
+        this.adapter.updateNote(noteLiNewContent, id)
     }
 }
