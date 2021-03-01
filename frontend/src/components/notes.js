@@ -11,6 +11,7 @@ class Notes {
         this.inputNoteBody = document.querySelector("#input-note-body")
         this.newNoteForm = document.querySelector("#new-note-from")
         this.newNoteForm.addEventListener('submit', this.createNote.bind(this))
+        this.notesContainer.addEventListener('dblclick', this.handleNoteClick.bind(this))
     }
 
     fetchAndLoadNotes() {
@@ -24,11 +25,13 @@ class Notes {
         })
     }
 
+    // render and display notes
     render() {
         let notesString = this.notes.map(note => note.renderNoteLi()).join('')
         this.notesContainer.innerHTML = notesString
     }
 
+    //create note
     createNote(e) {
         e.preventDefault()
         let noteInput = this.inputNoteBody.value
@@ -37,4 +40,8 @@ class Notes {
         window.location.reload();
     }
 
+    // edit note
+    handleNoteClick(e) {
+        console.log(e.target)
+    }
 }
