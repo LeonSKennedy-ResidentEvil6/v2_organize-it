@@ -2,8 +2,12 @@ class Notes {
     constructor() {
         this.notes = []
         this.adapter = new NotesService()
-        // this.bindEventListensers()
+        this.bindingsAndEventListeners() //instead of caching DOM, use this method to make code more efficient. how?
         this.fetchAndLoadNotes()
+    }
+
+    bindingsAndEventListeners() {
+        this.notesContainer = document.querySelector("#notes-container")
     }
 
     fetchAndLoadNotes() {
@@ -18,9 +22,8 @@ class Notes {
     }
 
     render() {
-        const notesContainer = document.querySelector("#notes-container")
-        let notesString = this.notes.map(note => `<li id="${note.id}">${note.body}</li>`).join('')
-        notesContainer.innerHTML = notesString
+        let notesString = this.notes.map(note => note.renderNoteLi()).join('')
+        this.notesContainer.innerHTML = notesString
     }
 
 }
