@@ -44,5 +44,6 @@ class Notes {
     handleNoteClick(e) {
         let noteLi = e.target
         noteLi.contentEditable = true
+        noteLi.classList.add("contentEditable")
     }
 }
