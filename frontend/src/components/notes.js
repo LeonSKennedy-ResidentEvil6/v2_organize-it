@@ -42,6 +42,7 @@ class Notes {
 
     // edit note
     handleNoteClick(e) {
-        console.log(e.target)
+        let noteLi = e.target
+        noteLi.contentEditable = true
     }
 }
