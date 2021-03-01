@@ -9,7 +9,8 @@ class Notes {
     bindingsAndEventListeners() {
         this.notesContainer = document.querySelector("#notes-container")
         this.newNoteForm = document.querySelector("#new-note-from")
-        this.newNoteForm.addEventListener('submit', this.createNote)
+        this.inputNoteBody = document.getElementById("#input-note-body")
+        this.newNoteForm.addEventListener('submit', this.createNote.bind(this))
     }
 
     fetchAndLoadNotes() {
@@ -29,8 +30,11 @@ class Notes {
     }
 
     createNote(e) {
+        console.log(this)
         e.preventDefault()
-        console.log("yoo")
+        let noteInput = this.inputNoteBody.value
+
+        this.adapter.createNote(noteInput)
     }
 
 }
