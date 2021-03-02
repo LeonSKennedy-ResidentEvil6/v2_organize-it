@@ -26,18 +26,18 @@ class NotesService {
     }
 
     async updateNote(noteLiNewContent, id) {
-        let newNoteList = { body: noteLiNewContent} 
-        return fetch(`${this.baseUrl}/id`, {
-            method: 'PUT',
+        // let newNoteList = { body: noteLiNewContent} 
+        return fetch(`${this.baseUrl}/${id}`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
               }, 
-            //   body: JSON.stringify({
-            //       note: {
-            //         body: newNoteList
-            //       }
-            // }),
-            body: JSON.stringify({newNoteList}),
+              body: JSON.stringify({
+                  note: {
+                    body: noteLiNewContent
+                  }
+            }),
+            // body: JSON.stringify({newNoteList}),
         })
         .then(response => response.json())
 
