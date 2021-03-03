@@ -19,6 +19,12 @@ body {
 #input-note-body {
     font-size: 20px;
     padding: 0.5em;
+    box-shadow: 0 8px 18px 0 black;
+    background-color: violet;
+}
+
+#notes-container {
+    border: 4px dotted red;
 }
 
 
