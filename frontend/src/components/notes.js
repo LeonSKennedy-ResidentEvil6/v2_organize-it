@@ -45,7 +45,7 @@ class Notes {
         window.location.reload();
     }
 
-    // edit note
+    // able to edit note
     handleNoteClick(e) {
         let noteLi = e.target
         noteLi.contentEditable = true
@@ -53,6 +53,7 @@ class Notes {
         noteLi.focus({preventScroll:true})
     }
 
+    // update note
     updateNote(e) {
         let noteLi = e.target
         noteLi.contentEditable = false
