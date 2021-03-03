@@ -13,12 +13,16 @@ class Api::V1::NotesController < ApplicationController
     def create
       note = Note.create(note_params)
       render json: note, status: :accepted
-    end 
+    end
 
     def update
       note = Note.find(params[:id])
-      note.update(note_params)
-      render json: note, status: :accepted
+      if note.id != 'null'
+        note.update(note_params)
+        render json: note, status: :accepted
+      else
+        redirect_back(fallback_location: root_path)
+      end
     end
 
     def destroy

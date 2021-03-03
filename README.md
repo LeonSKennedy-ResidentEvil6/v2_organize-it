@@ -14,6 +14,9 @@ This is an improved version of the organize-it application. Make sure <a href="h
 1. Allow the user to view all of the events and add participants
 2. Allow the user to add a participant to a particular event
 3. Allow the user to delete a particular participant registered for a particular event
+4. Allow the user to add a new note
+5. Allow the user to edit a note
+6. Allow the user to delete a note
 
 ## Project File Structure
 ```
@@ -23,24 +26,37 @@ Organize-it
 │   │   ├── controllers
 │   │   │   ├── events_controller.rb
 │   │   │   └── participants_controller.rb
+|   |   |   └── notes_controller.rb
 │   │   ├── models
 │   │   │   ├── event.rb
 │   │   │   └── participant.rb
+│   │   │   ├── note.rb
 │   │   └── views
 │   └── db
 │       ├── migrate
 │       │   ├── create_events.rb
+│       │   ├── create_notess.rb
 │       │   └── create_participants.rb
 │       ├── schema.rb
 │       └── seeds.rb
 │
 ├── frontend
 │   ├── src
-│   │   ├── event.js
-│   │   ├── index.js
-│   │   └── participant.js
+│   │   ├── adapters
+│   │   │   ├── NotesService.rb
+│   │   │   └── EventService.rb
+│   │   ├── components
+│   │   │   ├── app.js
+│   │   │   ├── note.js
+│   │   │   └── notes.js
+│   |   ├── event.js
+│   |   ├── participant.js
+│   |   ├── event_participants.js
+│   │   └── note_app_main.js
 │   ├── style
 │   │   └── style.css
-│   └── index.html
+│   ├── note.html
+│   ├── event_participant.html
+│   └── organize_it.html
 └── README.md
 ```
