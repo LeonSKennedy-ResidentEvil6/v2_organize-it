@@ -16,6 +16,7 @@ class Notes {
         this.body = document.querySelector('body')
         this.body.addEventListener('dblclick', this.handleNoteClick.bind(this))
         this.body.addEventListener('focusout', this.updateNote.bind(this), true)
+        // this.body.addEventListener('mouseover', this.deleteNote.bind(this), true)
     }
 
     // get notes from backend
@@ -51,6 +52,8 @@ class Notes {
         noteLi.contentEditable = true
         noteLi.classList.add("contentEditable")
         noteLi.focus({preventScroll:true})
+        // add delete button
+        noteLi.innerHTML += '<button onclick="delete this note">'
     }
 
     // update note
@@ -61,5 +64,10 @@ class Notes {
         let noteLiNewContent = noteLi.innerHTML
         let noteId = noteLi.getAttribute("note-id")
         this.adapter.updateNote(noteLiNewContent, noteId)
+    }
+
+    //delete note
+    deleteNote(e) {
+        console.log(e.target)
     }
 }

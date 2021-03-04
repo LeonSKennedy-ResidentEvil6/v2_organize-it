@@ -26,7 +26,7 @@ class NotesService {
     }
 
     async updateNote(noteLiNewContent, noteId) {
-        // let newNoteList = { body: noteLiNewContent} 
+        // method 2: let newNoteList = { body: noteLiNewContent} 
         return fetch(`${this.baseUrl}/${noteId}`, {
             method: 'PUT',
             headers: {
@@ -37,7 +37,7 @@ class NotesService {
                     body: noteLiNewContent
                   }
             }),
-            // body: JSON.stringify({newNoteList}),
+            // method 2: body: JSON.stringify({newNoteList}),
         })
         .then(response => response.json())
 
