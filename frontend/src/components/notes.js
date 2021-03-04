@@ -52,8 +52,8 @@ class Notes {
         noteLi.contentEditable = true
         noteLi.classList.add("contentEditable")
         noteLi.focus({preventScroll:true})
-        // add delete button
-        noteLi.innerHTML += '<button onclick="delete this note">'
+        // add delete button upon double clicking
+        noteLi.innerHTML += '<button onclick="deleteNote()" id="delete-btn">'
     }
 
     // update note
@@ -69,5 +69,12 @@ class Notes {
     //delete note
     deleteNote(e) {
         console.log(e.target)
+        // method 1 -> mouse hover over -> delete button appear -> click button -> fetch delete -> update DOM
+        // method 2 -> double click note -> delete button appear -> click button -> fetch delete -> update DOM
+        // method 3 -> add delete button upon new note is created - click button -> fetch delete -> update DOM
+
+    // let deleteBtn = document.getElementById('delete-btn')
+    // console.log(deleteBtn)
+    // deleteBtn.addEventListener('click', this.deleteNote.bind(this), true)
     }
 }
