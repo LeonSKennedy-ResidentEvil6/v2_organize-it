@@ -6,21 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-software_engineering = Course.create(name: "Software Engineering Bootcamp", description: "250 hours full-stack development")
-
-cybersercurity = Course.create(name: "Cybersecurity Bootcamp", description: "250 hours  security concepts and applications")
-
-data_science = Course.create(name: "Data Science Bootcamp", description: "250 hours covering sql, python, and R Programming")
-
-john_doe = Student.create(full_name: "John Doe", email: "jdoe@gmail.com", time_preference: "Morning", course_id: software_engineering.id)
-
-jane_doe = Student.create(full_name: "Jane Doe", email: "jdoe@outlook.com", time_preference: "Afternoon", course_id: cybersercurity.id)
-
-anne_doe = Student.create(full_name: "Anne Doe", email: "adoe@yahoo.com", time_preference: "Evening", course_id: data_science.id)
-
-frank_doe = Student.create(full_name: "Frank Doe", email: "fdoe@yahoo.com", time_preference: "Evening", course_id: software_engineering.id)
-
-mary_anne = Student.create(full_name: "Mary Anne", email: "example@yahoo.com", time_preference: "Morning", course_id: software_engineering.id)
 
 close_the_deal = Event.create(name: "business meetup event", description: "monthly business meetup event for young professionals in the bay area")
 

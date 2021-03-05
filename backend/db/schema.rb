@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_02_28_051708) do
 
-  create_table "courses", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -42,16 +35,5 @@ ActiveRecord::Schema.define(version: 2021_02_28_051708) do
     t.index ["event_id"], name: "index_participants_on_event_id"
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string "full_name"
-    t.string "email"
-    t.string "time_preference"
-    t.integer "course_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_students_on_course_id"
-  end
-
   add_foreign_key "participants", "events"
-  add_foreign_key "students", "courses"
 end
