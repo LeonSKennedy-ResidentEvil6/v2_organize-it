@@ -29,7 +29,7 @@ class Participant {
         let removeParticipant = document.createElement('button')
         removeParticipant.setAttribute("id", this.id)
         removeParticipant.innerHTML = "Remove Participant"
-        removeParticipant.addEventListener("click", e => deleteParticipant(e))
+        removeParticipant.addEventListener("click", (e) => deleteParticipant(e))
         participantCards.appendChild(removeParticipant)
     }
 
