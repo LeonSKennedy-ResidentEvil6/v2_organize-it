@@ -27,4 +27,11 @@ body {
     border: 4px dotted red;
 }
 
+.delete {
+    opacity: 0;
+  }
+  
+  li:hover > .delete {
+    opacity: 1;
+  }
 

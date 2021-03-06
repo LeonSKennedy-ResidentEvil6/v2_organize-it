@@ -52,8 +52,6 @@ class Notes {
         noteLi.contentEditable = true
         noteLi.classList.add("contentEditable")
         noteLi.focus({preventScroll:true})
-        // add delete button upon double clicking
-        noteLi.innerHTML += '<button onclick="deleteNote()" id="delete-btn">'
     }
 
     // update note
