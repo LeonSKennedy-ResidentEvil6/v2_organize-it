@@ -42,4 +42,22 @@ class NotesService {
         .then(response => response.json())
 
     }
+
+    async deleteNote(e){
+        fetch(participantsEndPoint + `/${e.target.id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+        .then(function(resp){
+            if(resp.status = 204)
+                location.reload();
+            else
+                throw new Error(resp.message)
+                console.log(resp.status)
+        })
+        .catch(error => {alert(error.message)})
+    }
 }

@@ -48,7 +48,6 @@ class Notes {
     // handle double click note lists enable edit or delete
     handleNoteClick(e) {
         this.toggleNote(e)
-        this.handleClickDelete(e)
     }
 
     // note card is enabled to be edited
@@ -69,16 +68,10 @@ class Notes {
         this.adapter.updateNote(noteLiNewContent, noteId)
     }
 
-    
-    handleClickDelete(e) {
-        let deleteBtn = document.querySelector(".delete")
-        deleteBtn.addEventListener('click', this.deleteNote)
-    }
-
     //delete note
-    deleteNote(e) {
+    // deleteNote(e) {
         // method 1 -> mouse hover over -> delete button appear -> click button -> fetch delete -> update DOM
         // method 2 -> double click note -> delete button appear -> click button -> fetch delete -> update DOM
         // method 3 -> add delete button upon new note is created - click button -> fetch delete -> update DOM
-    }
+    // }
 }
