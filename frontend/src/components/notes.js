@@ -16,9 +16,6 @@ class Notes {
         this.body = document.querySelector('body')
         this.body.addEventListener('dblclick', this.handleNoteClick.bind(this))
         this.body.addEventListener('focusout', this.updateNote.bind(this), true)
-
-        // this.deleteBtn = document.querySelector('body').getElementsByTagName("button")
-        // console.log(this.deleteBtn)
     }
 
     // get notes from backend
@@ -51,11 +48,11 @@ class Notes {
     // handle double click note lists enable edit or delete
     handleNoteClick(e) {
         this.toggleNote(e)
+        this.handleClickDelete(e)
     }
 
     // note card is enabled to be edited
     toggleNote(e) {
-        // console.log(e.target)
         let noteLi = e.target
         noteLi.contentEditable = true
         noteLi.classList.add("contentEditable")
@@ -72,16 +69,16 @@ class Notes {
         this.adapter.updateNote(noteLiNewContent, noteId)
     }
 
+    
+    handleClickDelete(e) {
+        let deleteBtn = document.querySelector(".delete")
+        deleteBtn.addEventListener('click', this.deleteNote)
+    }
+
     //delete note
     deleteNote(e) {
-        console.log(e.target)
         // method 1 -> mouse hover over -> delete button appear -> click button -> fetch delete -> update DOM
         // method 2 -> double click note -> delete button appear -> click button -> fetch delete -> update DOM
         // method 3 -> add delete button upon new note is created - click button -> fetch delete -> update DOM
-
-        // working on delete button
-        let noteDeleteBtn = document.getElementsByTagName('button')
-        console.log(noteDeleteBtn)
-        noteDeleteBtn.addEventListener('click', e => console.log("yoo"))
     }
 }
