@@ -60,3 +60,16 @@ Organize-it
 │   └── organize_it.html
 └── README.md
 ```
+## Built with / Main Features
+
+JavaScript frontend
+Rails API backend
+Asynchronous (AJAX)
+JASON format
+Object Oriented JavaScript
+RESTful conventions
+Fetch API
+ES6 syntax
+Active Record Serializers
+HTML5
+CSS
