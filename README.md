@@ -62,14 +62,14 @@ Organize-it
 ```
 ## Built with / Main Features
 
-JavaScript frontend
-Rails API backend
-Asynchronous (AJAX)
-JASON format
-Object Oriented JavaScript
-RESTful conventions
-Fetch API
-ES6 syntax
-Active Record Serializers
-HTML5
-CSS
+- JavaScript frontend
+- Rails API backend
+- Asynchronous (AJAX)
+- JASON format
+- Object Oriented JavaScript
+- RESTful conventions
+- Fetch API
+- ES6 syntax
+- Active Record Serializers
+- HTML5
+- CSS
