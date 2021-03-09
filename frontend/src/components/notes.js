@@ -11,8 +11,7 @@ class Notes {
         this.inputNoteBody = document.querySelector("#input-note-body")
         this.newNoteForm = document.querySelector("#new-note-from")
         this.newNoteForm.addEventListener('submit', this.createNote.bind(this))
-        // this.notesContainer.addEventListener('dblclick', this.handleNoteClick.bind(this))
-        // take notes here: need to select parent to add event listener. why?
+    
         this.body = document.querySelector('body')
         this.body.addEventListener('dblclick', this.handleNoteClick.bind(this))
         this.body.addEventListener('focusout', this.updateNote.bind(this), true)
