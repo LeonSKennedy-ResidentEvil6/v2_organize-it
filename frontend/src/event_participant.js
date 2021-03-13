@@ -51,7 +51,6 @@ function postEvent(eventNameInput, eventDescriptionInput) {
     .then(result => {
         const newEvent = new Event(result.data)
         newEvent.renderEvent();
-        location.reload()
     })
     .catch(error => { alert(error.message) })
 }
@@ -65,13 +64,7 @@ function deleteEvent(e){
             "Accept": "application/json"
         }
     })
-    .then(function(resp){
-        if(resp.status = 204)
-            location.reload();
-        else
-            throw new Error(resp.message)
-            console.log(resp.status)
-    })
+    .then(resp => resp.json())
     .catch(error => {alert(error.message)})
 }
 
@@ -98,12 +91,12 @@ function postParticipant (full_name, email, phone_number, event_id){
     .then(participant => {
         let newParticipant = new Participant(participant.data)
         newParticipant.renderParticipant()
-        location.reload()
+
     })
     .catch(error => {alert(error.message)})
 }
 
-// display all participants
+// display all events
 function renderParticipants(e) {
     const participantsCards = document.querySelector('#card-container')
     participantsCards.innerHTML = `Selected Event: ${e.target.innerHTML}`
@@ -172,7 +165,6 @@ function editEvent(e){
     .catch(error => {alert(error.message)})
 }
 
-
 // delete participant
 function deleteParticipant(e){
     fetch(participantsEndPoint + `/${e.target.id}`, {
@@ -182,13 +174,7 @@ function deleteParticipant(e){
             "Accept": "application/json"
         }
     })
-    .then(function(resp){
-        if(resp.status = 204)
-            location.reload();
-        else
-            throw new Error(resp.message)
-            console.log(resp.status)
-    })
+    .then(resp => resp.json())
     .catch(error => {alert(error.message)})
 }
 

@@ -2,46 +2,61 @@ class Notes {
     constructor() {
         this.notes = []
         this.adapter = new NotesService()
-        this.bindingsAndEventListeners() //instead of caching DOM, use this method to make code more efficient. how?
-        this.fetchAndLoadNotes()
-    }
-
-    bindingsAndEventListeners() {
         this.notesContainer = document.querySelector("#notes-container")
         this.inputNoteBody = document.querySelector("#input-note-body")
-        this.newNoteForm = document.querySelector("#new-note-from")
-        this.newNoteForm.addEventListener('submit', this.createNote.bind(this))
-    
-        this.body = document.querySelector('body')
-        this.body.addEventListener('dblclick', this.handleNoteClick.bind(this))
-        this.body.addEventListener('focusout', this.updateNote.bind(this), true)
+        this.initialSubmitEventListenersAndBinding()
+        this.fetchAndLoadNotes()
+
     }
 
     // get notes from backend
     fetchAndLoadNotes() {
         this.adapter.getNotes().then(notes => {
-            // notes.forEach(note => this.notes.push(note))
-            notes.forEach(note => this.notes.push(new Note(note)))
-            // console.log('this is my notes array', this.notes)
+            notes.forEach((note) => this.notes.push(new Note(note)));
         })
         .then(() => {
+            console.log("render notes");
             this.renderNotes()
         })
     }
 
-    // render and display notes
-    renderNotes() {
-        let notesString = this.notes.map(note => note.renderNoteLi()).join('')
-        this.notesContainer.innerHTML = notesString
+    initialSubmitEventListenersAndBinding () {
+        console.log("initial submit binding")
+        this.newNoteForm = document.querySelector("#new-note-from")
+        this.newNoteForm.addEventListener('submit', this.createNote.bind(this))
+    }
+
+    bindingsAndEventListeners() {
+        // this.newNoteForm.addEventListener('submit', this.createNote.bind(this))
+        this.notesContainer.addEventListener('dblclick', this.handleNoteClick.bind(this))
+        this.notesContainer.addEventListener('blur', this.updateNote.bind(this), true)
+        console.log("bindings");
+        this.deletes = document.querySelectorAll('.removeBtn')
+        this.deletes.forEach((btn) => {
+          btn.addEventListener("click", this.deleteNote.bind(this), true);
+        });
+    }
+
+    deleteNote(e) {
+        e.srcElement.parentNode.remove();
+        this.notes.find( (note) => note.id = e.target.id).deleteNote()
     }
 
     //create note
     createNote(e) {
         e.preventDefault()
         let noteInput = this.inputNoteBody.value
-        this.adapter.createNote(noteInput).then(note => {this.notes.push(new Note(note))})
-        this.renderNotes()
-        window.location.reload();
+        this.adapter.createNote(noteInput).then((note) => {
+          this.notes.push(new Note(note));
+        })
+        .then( () => this.renderNotes() );
+    }
+
+    // render and display notes
+    renderNotes() {
+        this.notesContainer.innerHTML = this.notes.map(note => note.renderNoteLi()).join('');
+        console.log("finish render notes");
+        this.bindingsAndEventListeners()
     }
 
     // handle double click note lists enable edit or delete
@@ -67,10 +82,4 @@ class Notes {
         this.adapter.updateNote(noteLiNewContent, noteId)
     }
 
-    //delete note
-    // deleteNote(e) {
-        // method 1 -> mouse hover over -> delete button appear -> click button -> fetch delete -> update DOM
-        // method 2 -> double click note -> delete button appear -> click button -> fetch delete -> update DOM
-        // method 3 -> add delete button upon new note is created - click button -> fetch delete -> update DOM
-    // }
 }

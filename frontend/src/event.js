@@ -20,11 +20,13 @@ class Event {
         let eventButton = document.createElement('button')
         eventButton.setAttribute('id', this.id)
         eventButton.innerHTML = `${this.name}`
-        eventButton.addEventListener('click', (e) => { renderParticipants(e) });
+        eventButton.addEventListener('click', (e) => renderParticipants(e) );
 
         const eventSelector = document.querySelector('#event-selector')
         eventSelector.appendChild(eventButton);
     }
+
+    
 }
 
   
